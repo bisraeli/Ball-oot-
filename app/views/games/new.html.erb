@@ -1,0 +1,32 @@
+<h1> Hello, please fill out the form below to create a new game</h1>
+
+<% unless @game.valid? %>
+<%= @game.errors.full_messages.to_sentence %>
+<% end %>
+
+<form action="/games" method="POST">
+  <label for="game[player_id]"> Player </label>
+  <select name="game[player_id]" placeholder="player">
+    <% (Player.all - [@current_user]).each do | player | %>
+    <option value="<%= player.id %>"
+      <%= @game.player == player ? 'selected="selected"' : '' %>
+    >
+      <%= display_player_name player %>
+    </option>
+    <% end %>
+  </select>
+<br/>
+  <label for="game[start_time]"> Start Time</label>
+  <%= date_select 'game', 'start_time', {}, {selected: @game.start_time} %>
+  <%= time_select 'game', 'start_time', {ignore_date: true, ampm: true}, {selected: @game.start_time} %>
+<br/>
+  <label for="game[end_time]"> End Time </label>
+  <%= date_select 'game', 'end_time', {}, {selected: @game.end_time} %>
+  <%= time_select 'game', 'end_time',{ignore_date: true, ampm: true}, {selected: @game.end_time} %>
+<br/>
+  <label for="game[location]"> Location </label>
+  <input type="text" name="game[location]" placeholder="location" value="<%= @game.location %>">
+<br/>
+<button> Submit </button>
+</form>
+<%= link_to "Home", root_path %>

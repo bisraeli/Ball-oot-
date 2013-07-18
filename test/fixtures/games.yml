@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  location: MyString
+  zipcode: MyString
+  start_time: 2013-07-16 00:40:17
+  end_time: 2013-07-16 00:40:17
+  player_id: 1
+  challenger_id: 1
+
+two:
+  location: MyString
+  zipcode: MyString
+  start_time: 2013-07-16 00:40:17
+  end_time: 2013-07-16 00:40:17
+  player_id: 1
+  challenger_id: 1

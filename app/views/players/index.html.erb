@@ -1,0 +1,12 @@
+<h1> Let us play </h1>
+
+<ul>
+  <% @players.each do |player| %>
+   <li> <%= render partial: 'player', locals: {player: player} %> </li>
+   <% end %>
+</ul>
+
+<%= link_to "Home", root_path %>
+
+
+

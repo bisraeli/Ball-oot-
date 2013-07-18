@@ -1,0 +1,8 @@
+<a href='<%= player_path(player) %>'>
+  <div class="player">
+    <span class="avatar"><%= image_tag player.gravatar_url %>
+    </span>
+    <span class='player_name'> <%= display_player_name player %></span>
+    <span class='player_email'> <%= player.email %></span>
+  </div>
+</a>
