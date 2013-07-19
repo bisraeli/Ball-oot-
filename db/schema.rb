@@ -11,6 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130716053422) do
+
+  create_table "games", :force => true do |t|
+    t.string   "location"
+    t.string   "zipcode"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "player_id"
+    t.integer  "challenger_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "players", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "height"
+    t.float    "weight"
+    t.string   "zipcode"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
 end

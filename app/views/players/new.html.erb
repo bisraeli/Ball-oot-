@@ -1,10 +1,37 @@
-<h1> Hello, please fill out the form below to register yourself as a new player</h1>
+<h1> Ba11-oot! Registration </h1>
+<h1> Sign up </h1>
 
-<form action="/players" method="POST">
+<%= form_for @player do |f| %>
+
+<% if @player.errors.any? %>
+  <div class="error_messages">
+    <h2> Bad input! </h2>
+    <ul>
+
+      <% @player.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= f.label :email %>
+<%= f.text_field :email %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation %>
+
+<%= f.submit %>
+
+<% end %>
+
+
+<!--<form action="/players" method="POST">
   <input type="text" name="first_name" placeholder= "first name here">
   <input type="text" name= "last_name" placeholder="last name here">
   <input type="text" name= "email" placeholder="email address">
   <input type="text" name="height" placeholder="height">
   <input type="text" name="weight" placeholder="weight">
   <button> Submit </button>
-</form>
+</form> -->

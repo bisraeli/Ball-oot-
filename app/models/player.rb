@@ -7,7 +7,7 @@ class Player < ActiveRecord::Base
   gravtastic :filetype => :gif, :rating => "PG", :default => "identicon"
   has_many :games
   has_many :challengers, :through => :games, source: 'challenger'
-  attr_accessible :firstname, :lastname, :email, :height, :weight, :zipcode :email, :password, :password_confirmation
+  attr_accessible :firstname, :lastname, :email, :height, :weight, :zipcode, :email, :password, :password_confirmation
 
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
