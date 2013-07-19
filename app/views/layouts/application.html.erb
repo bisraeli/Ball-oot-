@@ -10,15 +10,24 @@
   <div class="navbar">
     <div class="navbar-inner">
       <div class = "container">
-    <a href="#" class="brand"> Ball-oot!</a>
-      <ul class="nav">
-        <li><%= link_to "All Players", players_path %></li>
-        <li><%= link_to "Make your game" %> </li>
+        <a href="#" class="brand"> Ball-oot!</a>
+        <ul class="nav">
+          <li><%= link_to "All Players", players_path %></li>
+          <li><%= link_to "Bring it on!", new_game_path %> </li>
+        </ul>
+        <%- if logged_in? %>
+        <ul class='nav'>
+          <li class='push-right'><%= link_to "Logout (#{current_user.email})", log_out_path%> </li>
+        </ul>
+        <%- end %>
       </div>
     </div>
   </div>
   <div class="container">
-<%= yield %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, raw(msg), class: "alert alert-#{name}") %>
+    <% end %>
+    <%= yield %>
   </div>
 </body>
 </html>

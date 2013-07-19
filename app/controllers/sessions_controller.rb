@@ -1,20 +1,20 @@
 class SessionsController < ApplicationController
+  skip_before_filter :check_authentication, only: [:new, :create]
   def new
   end
 
   def create
-    #The following returns t/f
-    player = Player.autheticate(params[:email], params[:password])
+    player = login(params[:email], params[:password], false)
     if player
-      #This is if login worked
-      #Stores the user_id in a cookie!!
-
-      session[:player_id] = player.id
-      redirect_to root_url, notice: "Logged in!!"
+      redirect_back_or_to root_path, notice: "Successfully logged in."
     else
-      #This is if login didn't work
-      flash.now.alert = "Invalid email or password"
-      render "new"
+      flash.now.alert = "Email or password was invalid."
+      render 'new'
     end
+  end
+
+  def destroy
+    logout
+    redirect_back_or_to root_path, notice: "Logged out. See ya!"
   end
 end

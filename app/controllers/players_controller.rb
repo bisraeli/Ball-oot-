@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+   skip_before_filter :check_authentication, only: [:new, :create]
   def new
     @player = Player.new
   end
@@ -6,6 +7,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(params[:player])
     if @player.save
+      auto_login @player  #autologin is a sorcery method that keeps player logged in
       redirect_to root_url, :notice => "Signed up!"
     else
       render "new"

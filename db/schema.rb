@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(:version => 20130719033757) do
     t.string   "height"
     t.float    "weight"
     t.string   "zipcode"
-    t.string   "password_hash"
-    t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "crypted_password", :default => "nil"
+    t.string   "salt",             :default => "nil"
   end
 
 end

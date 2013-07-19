@@ -1,5 +1,6 @@
 BasketballApp::Application.routes.draw do
-  get "log_in" => "sessions/new", as: "log_in"
+  get "log_in" => "sessions#new", as: "log_in"
+  post "log_in" => "sessions#create", as: "create_session"
   get "sign_up" => "players#new", as: "sign_up"
   get "log_out" => "sessions#destroy", as: "log_out"
 
@@ -10,8 +11,8 @@ BasketballApp::Application.routes.draw do
   post '/players' => 'players#create'
   get '/players/:id' => 'players#show', as: :player
   get '/games' => 'games#index', as: :games
-  get '/games/new' => 'games#new'
-  post '/games' => 'games#create'
+  get '/games/new' => 'games#new', as: :new_game
+  post '/games' => 'games#create', as: :create_game
   get '/games/:id' => 'games#show', as: :game
   # The priority is based upon order of creation:
   # first created -> highest priority.

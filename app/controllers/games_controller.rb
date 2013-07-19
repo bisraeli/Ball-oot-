@@ -8,7 +8,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    game_options = {challenger_id: @current_user.id}.merge(params[:game])
+    game_options = {challenger_id: current_user.id}.merge(params[:game])
     @game = Game.new(game_options)
     success = @game.save
     if success

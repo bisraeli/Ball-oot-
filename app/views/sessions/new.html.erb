@@ -2,7 +2,7 @@
 
 <h1>Log in</h1>
 
-<%= form_tag sessions_path do %>
+<%= form_tag log_in_path do %>
   <p>
     <%= label_tag :email %><br />
     <%= text_field_tag :email, params[:email] %>
@@ -11,5 +11,8 @@
     <%= label_tag :password %><br />
     <%= password_field_tag :password %>
   </p>
-  <p class="button"><%= submit_tag %></p>
+  <p>
+    <button class="btn btn-primary">Login!</button> or
+    <%= link_to 'Sign up!', sign_up_path, class: "btn" %>
+  </p>
 <% end %>
