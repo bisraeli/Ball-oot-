@@ -6,12 +6,11 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(params[:player])
     if @player.save
-    redirect_to root_url, :notice => "Signed up!"
-   else
-    render "new"
+      redirect_to root_url, :notice => "Signed up!"
+    else
+      render "new"
     end
   end
-
 
   def show
     id = params[:id]

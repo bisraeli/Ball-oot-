@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'gravtastic'
 gem 'rails', '3.2.13'
+gem 'sorcery'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

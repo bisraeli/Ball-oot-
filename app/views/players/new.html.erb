@@ -4,7 +4,7 @@
 <%= form_for @player do |f| %>
 
 <% if @player.errors.any? %>
-  <div class="error_messages">
+  <div class="alert alert-error text-error">
     <h2> Bad input! </h2>
     <ul>
 
@@ -21,6 +21,7 @@
 <%= f.password_field :password %>
 <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation %>
+
 
 <%= f.submit %>
 

@@ -4,7 +4,7 @@ BasketballApp::Application.routes.draw do
   get "log_out" => "sessions#destroy", as: "log_out"
 
 
-  root :to => 'players#new'
+  root :to => 'games#index'
   get '/players' => 'players#index', as: :players
   get '/players/new' => 'players#new'
   post '/players' => 'players#create'
