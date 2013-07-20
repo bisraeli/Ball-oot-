@@ -1,12 +1,14 @@
 <h1> Hello, please fill out the form below to create a new game</h1>
 
 <% unless @game.valid? %>
-<%= @game.errors.full_messages.to_sentence %>
+<div class='alert alert-error text-error'>
+  <%= @game.errors.full_messages.to_sentence %>
+</div>
 <% end %>
 
 <%= form_for @game do |f| %>
   <%= f.label :player_id %>
-  <%= f.collection_select :player_id, (Player.all - [@current_user]), @game.player %>
+  <%= f.collection_select :player_id, (Player.all - [@current_user]), :id, :display_name, selected: @game.player %>
   <%= f.label :start_time %>
   <%= f.date_select :start_time, {}, {class: 'input-medium', selected: @game.start_time} %>
   <%= f.time_select :start_time, {ignore_date: true, ampm: true}, {class: 'input-small', selected: @game.start_time} %>

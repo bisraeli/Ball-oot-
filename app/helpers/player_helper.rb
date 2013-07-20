@@ -1,6 +1,6 @@
 module PlayerHelper
   def display_player_name(player)
     return "-" if player.nil?
-    "#{player.firstname} #{player.lastname}"
+    player.display_name
   end
 end

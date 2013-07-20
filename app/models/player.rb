@@ -19,4 +19,8 @@ class Player < ActiveRecord::Base
     message: "should be in the form of 5'9" }
 
   validates :weight, numericality: { in: 80..300 }
+
+  def display_name
+    "#{self.firstname} #{self.lastname}"
+  end
 end

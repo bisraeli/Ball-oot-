@@ -4,14 +4,14 @@ class Game < ActiveRecord::Base
   belongs_to :player
   belongs_to :challenger, class_name: "Player"
 
-  validates :location, presence: true
+  validates :location, presence: true, on: :save
 
-  #validate :end_time_after_start_time
+  validate :end_time_after_start_time, on: :save
 
-  #private
-  # def end_time_after_start_time
-  #   if end_time <= start_time
-  #     errors[:end_time] << "must be after start time"
-  #   end
-
+  private
+  def end_time_after_start_time
+    if end_time <= start_time
+      errors[:end_time] << "must be after start time"
+    end
+  end
 end

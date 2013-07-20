@@ -1,1 +1,11 @@
-<h1> <%= display_player_name game.challenger %> vs.<%= display_player_name game.player %> at <%= game.location%> starting at <%= game.start_time %> </h1>
+
+<table class="table">
+  <tr>
+    <th> Match up </th>
+    <td><%= display_player_name game.challenger %> vs.<%= display_player_name game.player %> </td>
+
+    <th>Location </th>
+    <td> <%= game.location%><th> Start Time </th>
+    <td> <%= game.start_time %> </td>
+  </tr>
+</table>

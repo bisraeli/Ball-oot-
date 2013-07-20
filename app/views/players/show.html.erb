@@ -1,4 +1,14 @@
 <h1> <%= display_player_name @player%> </h1>
-
+<table class= "table">
+  <tr>
+    <th>Height</th>
+    <td> <%= @player.height %> </td>
+  </tr>
+  <tr>
+    <th> Weight</th>
+    <td> <%= @player.weight %></td>
+  </tr>
+</table>
 <%= link_to "Players", players_path %>
-<%= link_to "Home", root_path %>
+<%= link_to "Games", root_path %>
+
